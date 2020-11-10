@@ -7,7 +7,7 @@ class Position:
 
 class Map:
     def __init__(self):
-        element = {"Syringe" : '1', "Tube" : '2', "Start" : 'S', "Goal" : "G", "Map_size" : 16}
+        element = {"Start" : 'S', "Goal" : "G", "Map_size" : 16}
         self.source = open("map/map.txt").read()
         for i, letter in enumerate(self.source):
             for attr_name, attr_value in element.items():
