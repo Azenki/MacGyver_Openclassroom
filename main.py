@@ -7,7 +7,7 @@ from graphic.gameboard import Gameboard, pygame
 class Game:
     def __init__(self):
         self.map = Map()
-        self.gameboard = Gameboard()
+        self.gameboard = Gameboard(self.map)
 
 def gameloop():
     done = False
