@@ -17,9 +17,9 @@ def main():
     game = Game()
     #print("La position de la seringue", game.item.Syringe.print_pos())
     while game.screen.status == True:
-        game.screen.screen.addstr(game.map.source)
+        game.screen.screen.addstr(''.join(game.map.source))
         key = game.screen.screen.getch()
-        game.screen.move(game.map.Start, game.map.source, game, key)
+        game.screen.move(game.map.Start, game.map.source, key)
         game.screen.screen.clear()
     game.screen.end()
 

@@ -1,9 +1,13 @@
 from logic.position import Position
+import random
 
 class Items:
+    MAP_SIZE = 16
     def __init__(self, source):
-        element = {"Syringe" : '1', "Tube" : '2', "Map_size" : 16}
-        for i, letter in enumerate(source):
-            for attr_name, attr_value in element.items():
-                if letter == attr_value:
-                    setattr(self, attr_name, Position(i % element["Map_size"],i // element["Map_size"]))
+        i = 0
+        print(type(source))
+        while i != 2:
+            pos = random.randint(0, 225)
+            if source[pos] != 0:
+                source[pos] = 'L'
+                i += 1
