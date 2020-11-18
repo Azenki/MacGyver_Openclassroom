@@ -1,17 +1,25 @@
 #!/usr/bin/env python3
 
 import random
-from os import environ
-environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
-from pygame import *
 from logic.map import Map
+from graphic.gameboard import Gameboard, pygame
 
 class Game:
     def __init__(self):
         self.map = Map()
+        self.gameboard = Gameboard()
 
+def gameloop():
+    done = False
+    while not done:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+        pygame.display.flip()
+        
 def main():
     game = Game()
     game.map.print_map()
+    gameloop()
 
 main()
