@@ -1,8 +1,6 @@
 from logic.position import Position
-import random
 
-class Items:
-    MAP_SIZE = 16
-    def __init__(self, name, pos):
-        self.name = name
-        self.pos = Position(pos % 15, pos // 15)
+class Item:
+    def __init__(self, pos):
+        self.status = 0
+        self.pos = Position(pos)
