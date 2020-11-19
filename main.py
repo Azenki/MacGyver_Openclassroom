@@ -19,7 +19,6 @@ def gameloop():
         
 def main():
     game = Game()
-    game.map.print_map()
     gameloop()
 
 main()
