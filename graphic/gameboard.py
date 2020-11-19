@@ -5,6 +5,7 @@ from pygame.locals import *
 from graphic.menu import Menu
 from graphic.map import Map
 from graphic.player import Player
+from graphic.guardian import Guardian
 from graphic.items import Items
 
 WIDTH = 800
@@ -17,6 +18,7 @@ class Gameboard:
         self.window = pygame.display.set_mode((WIDTH, HEIGHT))
         self.map = Map()
         self.player = Player()
+        self.guardian = Guardian()
         self.items = Items()
         self.clock = pygame.time.Clock()
 
@@ -30,10 +32,21 @@ class Gameboard:
         self.window.fill("black")
         self.map.draw(self.window, map.map)
         self.items.draw(self.window, map.map)
+        self.guardian.draw(self.window, map.guardian.pos)
         self.player.draw(self.window, map.player.pos)
 
     def draw_menu(self):
         pass
+
+    def check_end(self, map):
+        if map.player.pos == map.guardian.pos:
+            if '1' in map.map or '0' in map.map:
+                print("Lose, see you next time !")
+            else:
+                print("Win ! Congrats")
+            return True
+        else:
+            return False
 
     def gameloop(self, map):
         done = False
@@ -42,4 +55,5 @@ class Gameboard:
             done = self.event_loop()
             self.player.move(map)
             self.draw_game(map)
+            done = self.check_end(map)
             pygame.display.flip()

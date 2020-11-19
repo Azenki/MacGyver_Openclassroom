@@ -16,7 +16,7 @@ class Map:
             if letter == 'P':
                 self.player = Position(i)
             elif letter == 'G':
-                self.goal = Position(i)
+                self.guardian = Position(i)
         i = 0
         while i != 2:
             tmp = random.randint(0, 224)
