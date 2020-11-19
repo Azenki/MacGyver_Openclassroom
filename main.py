@@ -7,18 +7,10 @@ from graphic.gameboard import Gameboard, pygame
 class Game:
     def __init__(self):
         self.map = Map()
-        self.gameboard = Gameboard(self.map)
-
-def gameloop():
-    done = False
-    while not done:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                done = True
-        pygame.display.flip()
+        self.gameboard = Gameboard()
         
 def main():
     game = Game()
-    gameloop()
+    game.gameboard.gameloop(game.map)
 
 main()

@@ -9,9 +9,18 @@ WIDTH = 800
 HEIGHT = 600
 FPS = 30
 
-
 class Gameboard:
-    def __init__(self, map):
+    def __init__(self):
         pygame.init()
         self.window = pygame.display.set_mode((WIDTH, HEIGHT))
-        self.jeu = Map(self.window, map.map)
+        self.map = Map()
+
+    def gameloop(self, map):
+        done = False
+        while not done:
+            for event in pygame.event.get():
+                 if event.type == pygame.QUIT:
+                   done = True
+            self.window.fill("black")
+            self.map.draw(self.window, map.map)
+            pygame.display.flip()

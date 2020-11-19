@@ -1,18 +1,29 @@
 import pygame
+import os
+from os.path import dirname, abspath
+from graphic.asset import Asset
 
-class Asset:
-    def __init__(self, window, letter):
-        if letter == 'P' or letter == 'O':
-            pass 
+GAME_FOLDER = dirname(dirname(abspath(__file__)))
+IMG_FOLDER = os.path.join(GAME_FOLDER, "ressource")
+SPRITE_SHEET = pygame.image.load(os.path.join(IMG_FOLDER, "[32x32]Dungeon_Bricks_Shadow.png"))
 
 class Map:
-    def __init__(self, window, map):
+    def __init__(self):
+        self.wall = Asset(SPRITE_SHEET, pygame.Rect(96, 0, 32, 32))
+        self.road = Asset(SPRITE_SHEET, pygame.Rect(32, 32, 32, 32))
+
+    def draw(self, window, map):
         for i, letter in enumerate(map):
-            if letter == 'P':
-                pygame.draw.rect(window, "green", pygame.Rect(i % 15 * 10 + 10, i // 15 * 10 + 10, 10, 10))
-            elif letter == '0' or letter == '1':
-                pygame.draw.rect(window, "white", pygame.Rect(i % 15 * 10 + 10, i // 15 * 10 + 10, 10, 10))
-            elif letter == 'G':
-                pygame.draw.rect(window, "red", pygame.Rect(i % 15 * 10 + 10, i // 15 * 10 + 10, 10, 10))
-            elif letter != 'O' and letter != '\n':
-                pygame.draw.rect(window, "blue", pygame.Rect(i % 15 * 10 + 10, i // 15 * 10 + 10, 10, 10))
+            x = i % 15 * 32
+            y = i // 15 * 32
+            if letter == 'O':
+                self.wall.rect.x = x
+                self.wall.rect.y = y
+                window.blit(self.wall.image, self.wall.rect)
+            else:
+                self.road.rect.x = x
+                self.road.rect.y = y
+                window.blit(self.road.image, self.road.rect)
+            
+        
+        
