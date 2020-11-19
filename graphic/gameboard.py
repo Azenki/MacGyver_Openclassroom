@@ -8,7 +8,7 @@ from graphic.player import Player
 
 WIDTH = 800
 HEIGHT = 600
-FPS = 30
+FPS = 5
 
 class Gameboard:
     def __init__(self):
@@ -16,8 +16,9 @@ class Gameboard:
         self.window = pygame.display.set_mode((WIDTH, HEIGHT))
         self.map = Map()
         self.player = Player()
+        self.clock = pygame.time.Clock()
 
-    def event_loop(self, map):
+    def event_loop(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return True
@@ -34,6 +35,8 @@ class Gameboard:
     def gameloop(self, map):
         done = False
         while not done:
-            done = self.event_loop(map)
-            self.draw(map)
+            self.clock.tick(FPS)
+            done = self.event_loop()
+            self.player.move(map)
+            self.draw_game(map)
             pygame.display.flip()
