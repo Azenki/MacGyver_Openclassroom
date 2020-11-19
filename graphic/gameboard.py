@@ -8,8 +8,8 @@ from graphic.player import Player
 from graphic.guardian import Guardian
 from graphic.items import Items
 
-WIDTH = 800
-HEIGHT = 600
+WIDTH = 600
+HEIGHT = 480
 FPS = 10
 
 class Gameboard:
@@ -55,5 +55,6 @@ class Gameboard:
             done = self.event_loop()
             self.player.move(map)
             self.draw_game(map)
-            done = self.check_end(map)
+            if not done:
+                done = self.check_end(map)
             pygame.display.flip()
