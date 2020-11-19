@@ -40,10 +40,14 @@ class Gameboard:
 
     def check_end(self, map):
         if map.player.pos == map.guardian.pos:
-            if '1' in map.map or '0' in map.map:
+            if '1' in map.map and '0' in map.map:
                 print("Lose, see you next time !")
+            elif '1' in map.map:
+                print("You tried to prick with the syringe but he stoped you first ! You lose.")
+            elif '0' in map.map:
+                print("You tried to hit him with your tube, you suprised him but he catch you. You lose.")
             else:
-                print("Win ! Congrats")
+                print("You hit him with your tube, you suprised him and pricked it with the seringe and he falls. Congrats, you are free !")
             return True
         else:
             return False
