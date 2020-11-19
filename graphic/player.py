@@ -27,3 +27,5 @@ class Player:
             map.player.pos -= 15
         elif pos // 15 != 14 and keys[pygame.K_DOWN] and map.map[pos + 15] != "O":
             map.player.pos += 15
+        if map.map[map.player.pos] == '0' or map.map[map.player.pos] == '1':
+            map.map[map.player.pos] = '*'
