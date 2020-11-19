@@ -21,7 +21,7 @@ class Map:
         i = 0
         while i != 2:
             tmp = random.randint(0, 224)
-            if tmp not in self.EXCEPTIONS and tmp not in self.exception_pos:
+            if self.map[tmp] not in self.EXCEPTIONS and tmp not in self.exception_pos:
                 self.map[tmp] = str(i)
                 self.list_item.append(setattr(Item, self.ITEMS_NAME[i], tmp))
                 i += 1

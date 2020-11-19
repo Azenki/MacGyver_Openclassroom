@@ -1,5 +1,10 @@
 import pygame
 
+class Asset:
+    def __init__(self, window, letter):
+        if letter == 'P' or letter == 'O':
+            pass 
+
 class Map:
     def __init__(self, window, map):
         for i, letter in enumerate(map):
