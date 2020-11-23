@@ -10,17 +10,6 @@ class Items:
         for i in range (0, 4):
             item = Asset(self.list_of_source[i], pygame.Rect(0, 0, 32, 32))
             self.list_of_item.append(item)
-        """
-        self.SYRINGE_RESIZE = pygame.transform.scale(graphic.constant.SYRINGE_IMG, (32, 32))
-        self.TUBE_RESIZE = pygame.transform.scale(graphic.constant.TUBE_IMG, (32, 32))
-        self.SYRINGE_RESIZE.convert_alpha()
-        self.syringe = Asset(self.SYRINGE_RESIZE, self.SYRINGE_RESIZE.get_rect())
-        self.tube = Asset(self.TUBE_RESIZE, self.TUBE_RESIZE.get_rect())
-        self.list_of_item.append(self.tube)
-        self.list_of_item.append(self.syringe)
-        self.list_of_item.append(self.tube)
-        self.list_of_item.append(self.syringe)
-        """
     
     def draw(self,window, map):
         for i, item in enumerate(map.list_of_item):
