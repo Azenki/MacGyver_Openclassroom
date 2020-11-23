@@ -32,7 +32,6 @@ class Gameboard:
                 return True
             if self.status == self.status_dict["Main_menu"] and keys[pygame.K_RETURN]:
                 self.status = self.status_dict["Play"]
-
         return False
 
     def draw_game(self, map):
@@ -40,7 +39,7 @@ class Gameboard:
         self.map.draw(self.window, map.map)
         self.items.draw(self.window, map.map)
         self.guardian.draw(self.window, map.guardian.pos)
-        self.player.draw(self.window, map.player.pos)
+        self.player.draw(self.window, map.player.pos.pos)
 
     def draw_menu(self, map):
         self.main_menu.draw(self.window)

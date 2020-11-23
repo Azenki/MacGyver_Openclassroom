@@ -17,15 +17,13 @@ class Player:
         window.blit(self.sprite.image, self.sprite.rect)
     
     def move(self, map):
-        pos = map.player.pos
         keys = pygame.key.get_pressed()
-        if pos % 15 != 14 and keys[pygame.K_RIGHT] and map.map[pos + 1] != "O":
-            map.player.pos += 1
-        elif pos % 15 != 0 and keys[pygame.K_LEFT] and map.map[pos - 1] != "O":
-            map.player.pos -= 1
-        elif pos // 15 != 0 and keys[pygame.K_UP] and map.map[pos - 15] != "O":
-            map.player.pos -= 15
-        elif pos // 15 != 14 and keys[pygame.K_DOWN] and map.map[pos + 15] != "O":
-            map.player.pos += 15
-        if map.map[map.player.pos] == '0' or map.map[map.player.pos] == '1':
-            map.map[map.player.pos] = '*'
+        if keys[pygame.K_RIGHT]:
+            map.player.move_right(map.map)
+        elif keys[pygame.K_LEFT]:
+            map.player.move_left(map.map)
+        elif keys[pygame.K_UP]:
+            map.player.move_up(map.map)
+        elif keys[pygame.K_DOWN]:
+            map.player.move_down(map.map)
+        map.player.get_item(map.map)

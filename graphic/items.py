@@ -1,17 +1,12 @@
 import pygame
-import os
-from os.path import dirname, abspath
 from graphic.asset import Asset
+import graphic.constant
 
-GAME_FOLDER = dirname(dirname(abspath(__file__)))
-IMG_FOLDER = os.path.join(GAME_FOLDER, "ressource")
-SYRINGE_IMG = pygame.image.load(os.path.join(IMG_FOLDER, "seringue.png"))
-TUBE_IMG = pygame.image.load(os.path.join(IMG_FOLDER, "tube_plastique.png"))
 
 class Items:
     def __init__(self):
-        self.SYRINGE_RESIZE = pygame.transform.scale(SYRINGE_IMG, (32, 32))
-        self.TUBE_RESIZE = pygame.transform.scale(TUBE_IMG, (32, 32))
+        self.SYRINGE_RESIZE = pygame.transform.scale(graphic.constant.SYRINGE_IMG, (32, 32))
+        self.TUBE_RESIZE = pygame.transform.scale(graphic.constant.TUBE_IMG, (32, 32))
         self.SYRINGE_RESIZE.convert_alpha()
         self.syringe = Asset(self.SYRINGE_RESIZE, self.SYRINGE_RESIZE.get_rect())
         self.tube = Asset(self.TUBE_RESIZE, self.TUBE_RESIZE.get_rect())

@@ -1,6 +1,7 @@
 import random
 from logic.position import Position
 from logic.items import Item
+from logic.player import Player
 
 class Map:
     #size plus one for the return "\n"
@@ -14,7 +15,7 @@ class Map:
             self.map.remove('\n')
         for i, letter in enumerate(self.map):
             if letter == 'P':
-                self.player = Position(i)
+                self.player = Player(i)
             elif letter == 'G':
                 self.guardian = Position(i)
         i = 0
