@@ -2,15 +2,15 @@
 
 import random
 from logic.map import Map
-from graphic.gameboard import Gameboard, pygame
+from graphic.graphic import Graphic, pygame
 
 class Game:
     def __init__(self):
         self.map = Map()
-        self.gameboard = Gameboard()
+        self.graphic = Graphic()
         
 def main():
     game = Game()
-    game.gameboard.gameloop(game.map)
+    game.graphic.gameloop(game.map)
 
 main()

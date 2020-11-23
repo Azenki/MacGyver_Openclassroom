@@ -1,9 +1,9 @@
 import pygame
+import graphic.constant
 from graphic.map import Map
 from graphic.player import Player
 from graphic.guardian import Guardian
 from graphic.items import Items
-from graphic.menu import Main_menu
 
 class Play:
     def __init__(self):
@@ -11,6 +11,9 @@ class Play:
         self.player = Player()
         self.guardian = Guardian()
         self.items = Items()
+    def event(self, parent, keys, map):
+        if keys[pygame.K_ESCAPE]:
+                parent.status = graphic.constant.STATUS_DICT["Pause_menu"]
     def draw(self, map, window):
         window.fill("black")
         self.map.draw(window, map.map)
