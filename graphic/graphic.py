@@ -1,27 +1,22 @@
 from os import environ
 environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import pygame
+import graphic.constant
 from pygame.locals import *
+from graphic.play import Play
 from graphic.map import Map
 from graphic.player import Player
 from graphic.guardian import Guardian
 from graphic.items import Items
 from graphic.menu import Main_menu
 
-WIDTH = 600
-HEIGHT = 480
-FPS = 10
-
-class Gameboard:
+class Graphic:
     def __init__(self):
         self.status_dict = {"Main_menu" : 0, "Pause_menu" : 1, "Play" : 2, "Win" : 3, "Lose" : 4}
         self.status = 0
         pygame.init()
-        self.window = pygame.display.set_mode((WIDTH, HEIGHT))
-        self.map = Map()
-        self.player = Player()
-        self.guardian = Guardian()
-        self.items = Items()
+        self.window = pygame.display.set_mode((graphic.constant.WIDTH, graphic.constant.HEIGHT))
+        self.party = Play()
         self.main_menu = Main_menu()
         self.clock = pygame.time.Clock()
 
@@ -32,14 +27,9 @@ class Gameboard:
                 return True
             if self.status == self.status_dict["Main_menu"] and keys[pygame.K_RETURN]:
                 self.status = self.status_dict["Play"]
+            elif self.status == self.status_dict["Play"] and keys[pygame.K_ESCAPE]:
+                self.status = self.status_dict["Main_menu"]
         return False
-
-    def draw_game(self, map):
-        self.window.fill("black")
-        self.map.draw(self.window, map.map)
-        self.items.draw(self.window, map)
-        self.guardian.draw(self.window, map.guardian.pos)
-        self.player.draw(self.window, map.player.pos.pos)
 
     def draw_menu(self, map):
         self.main_menu.draw(self.window)
@@ -64,14 +54,14 @@ class Gameboard:
         elif self.status == self.status_dict["Pause_menu"]:
             pass
         elif self.status == self.status_dict["Play"]:
-            self.draw_game(map)
+            self.party.draw(map, self.window)
 
     def gameloop(self, map):
         done = False
         while not done:
-            self.clock.tick(FPS)
+            self.clock.tick(graphic.constant.FPS)
             done = self.event_loop()
-            self.player.move(map)
+            self.party.player.move(map)
             self.draw(map)
             if not done:
                 done = self.check_end(map)

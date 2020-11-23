@@ -25,4 +25,3 @@ class Map:
                     self.exception_pos.append(tmp)
                     item = Item(tmp)
                     self.list_of_item.append(item)
-        print(self.exception_pos)
