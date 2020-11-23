@@ -6,6 +6,11 @@ import graphic.constant
 class Items:
     def __init__(self):
         self.list_of_item = []
+        self.list_of_source = [graphic.constant.SYRINGE_IMG, graphic.constant.ETHER_IMG, graphic.constant.TUBE_IMG ,graphic.constant.NEEDLE_IMG]
+        for i in range (0, 4):
+            item = Asset(self.list_of_source[i], pygame.Rect(0, 0, 32, 32))
+            self.list_of_item.append(item)
+        """
         self.SYRINGE_RESIZE = pygame.transform.scale(graphic.constant.SYRINGE_IMG, (32, 32))
         self.TUBE_RESIZE = pygame.transform.scale(graphic.constant.TUBE_IMG, (32, 32))
         self.SYRINGE_RESIZE.convert_alpha()
@@ -15,6 +20,7 @@ class Items:
         self.list_of_item.append(self.syringe)
         self.list_of_item.append(self.tube)
         self.list_of_item.append(self.syringe)
+        """
     
     def draw(self,window, map):
         for i, item in enumerate(map.list_of_item):

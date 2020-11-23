@@ -17,6 +17,5 @@ class Player:
             self.pos.pos += 15
     def get_item(self, map):
         for item in map.list_of_item:
-            #print("my pos :", self.pos.pos, "item pos :", item.pos.pos)
             if self.pos.pos == item.pos.pos:
                 item.status = 1
