@@ -37,7 +37,7 @@ class Gameboard:
     def draw_game(self, map):
         self.window.fill("black")
         self.map.draw(self.window, map.map)
-        self.items.draw(self.window, map.map)
+        self.items.draw(self.window, map)
         self.guardian.draw(self.window, map.guardian.pos)
         self.player.draw(self.window, map.player.pos.pos)
 

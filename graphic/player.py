@@ -26,4 +26,4 @@ class Player:
             map.player.move_up(map.map)
         elif keys[pygame.K_DOWN]:
             map.player.move_down(map.map)
-        map.player.get_item(map.map)
+        map.player.get_item(map)
