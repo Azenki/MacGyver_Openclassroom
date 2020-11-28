@@ -1,12 +1,11 @@
 import pygame
-import graphic.constant
+import graphic.constant as const
 from graphic.asset import Asset
-
 
 
 class Guardian:
     def __init__(self):
-        self.sprite = Asset(graphic.constant.GUARDIAN_IMG, pygame.Rect(0, 0, 32, 32))
+        self.sprite = Asset(const.GUARDIAN_IMG, pygame.Rect(0, 0, 32, 32))
 
     def draw(self, window, pos):
         self.sprite.rect.x = pos % 15 * 32

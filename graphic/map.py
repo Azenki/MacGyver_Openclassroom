@@ -1,11 +1,12 @@
 import pygame
-import graphic.constant
+import graphic.constant as const
 from graphic.asset import Asset
+
 
 class Map:
     def __init__(self):
-        self.wall = Asset(graphic.constant.SPRITE_SHEET, pygame.Rect(96, 0, 32, 32))
-        self.road = Asset(graphic.constant.SPRITE_SHEET, pygame.Rect(32, 32, 32, 32))
+        self.wall = Asset(const.SPRITE_SHEET, pygame.Rect(96, 0, 32, 32))
+        self.road = Asset(const.SPRITE_SHEET, pygame.Rect(32, 32, 32, 32))
 
     def draw(self, window, map):
         for i, letter in enumerate(map):
@@ -19,6 +20,3 @@ class Map:
                 self.road.rect.x = x
                 self.road.rect.y = y
                 window.blit(self.road.image, self.road.rect)
-            
-        
-        

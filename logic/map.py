@@ -3,9 +3,11 @@ from logic.position import Position
 from logic.items import Item
 from logic.player import Player
 
+
 class Map:
     MAP_SIZE = 15
     EXCEPTIONS = ['P', 'G', 'O']
+
     def __init__(self):
         self.exception_pos = []
         self.list_of_item = []
@@ -17,7 +19,7 @@ class Map:
                 self.player = Player(i)
             elif letter == 'G':
                 self.guardian = Position(i)
-        for i in range (0, 4):
+        for i in range(0, 4):
             size = len(self.exception_pos)
             while size == len(self.exception_pos):
                 tmp = random.randint(0, 224)

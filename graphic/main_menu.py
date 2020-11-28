@@ -2,6 +2,7 @@ import pygame
 import graphic.constant
 from graphic.asset import Asset
 
+
 class Main_menu:
     def __init__(self):
         self.sprite = Asset(graphic.constant.MAIN_MENU_IMG, None)

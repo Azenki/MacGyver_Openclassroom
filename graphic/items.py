@@ -1,17 +1,17 @@
 import pygame
 from graphic.asset import Asset
-import graphic.constant
+import graphic.constant as const
 
 
 class Items:
     def __init__(self):
         self.list_of_item = []
-        self.list_of_source = [graphic.constant.SYRINGE_IMG, graphic.constant.ETHER_IMG, graphic.constant.TUBE_IMG ,graphic.constant.NEEDLE_IMG]
-        for i in range (0, 4):
+        self.list_of_source = [const.SYRINGE_IMG, const.ETHER_IMG, const.TUBE_IMG, const.NEEDLE_IMG]
+        for i in range(0, 4):
             item = Asset(self.list_of_source[i], pygame.Rect(0, 0, 32, 32))
             self.list_of_item.append(item)
-    
-    def draw(self,window, map):
+
+    def draw(self, window, map):
         for i, item in enumerate(map.list_of_item):
             if item.status == 0:
                 self.list_of_item[i].rect.x = item.pos.x * 32
