@@ -12,8 +12,9 @@ class Player:
         self.sprite.rect.y = pos // 15 * 32
         window.blit(self.sprite.image, self.sprite.rect)
 
-    def move(self, map):
+    def move(self, map, party):
         keys = pygame.key.get_pressed()
+        map.player.check_end(map, party)
         if keys[pygame.K_RIGHT]:
             map.player.move_right(map.map)
         elif keys[pygame.K_LEFT]:
