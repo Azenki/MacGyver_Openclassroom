@@ -34,4 +34,3 @@ class Player:
                     party.status = const.STATUS_DICT["Lose"]
                     return
             party.status = const.STATUS_DICT["Win"]
-

@@ -9,6 +9,6 @@ class Lose_menu:
 
     def draw(self, window):
         window.blit(self.sprite.image, self.sprite.rect)
-    
+
     def loop(self, parent, window):
         self.draw(window)

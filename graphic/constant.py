@@ -20,4 +20,3 @@ MAIN_MENU_IMG = pygame.image.load(os.path.join(IMG_FOLDER, "main_menu.png"))
 PAUSE_MENU_IMG = pygame.image.load(os.path.join(IMG_FOLDER, "pause_menu.png"))
 WIN_MENU_IMG = pygame.image.load(os.path.join(IMG_FOLDER, "win_menu.png"))
 LOSE_MENU_IMG = pygame.image.load(os.path.join(IMG_FOLDER, "lose_menu.png"))
-

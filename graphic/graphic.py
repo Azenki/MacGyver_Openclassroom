@@ -3,8 +3,6 @@ from graphic.play import Play
 from graphic.main_menu import Main_menu
 from graphic.win_menu import Win_menu
 from graphic.lose_menu import Lose_menu
-from os import environ
-environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import pygame
 
 
