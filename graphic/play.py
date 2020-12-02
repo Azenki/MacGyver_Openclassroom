@@ -14,9 +14,9 @@ class Play:
         self.guardian = Guardian()
         self.items = Items()
 
-    def event(self, parent, keys, map):
-        if keys[pygame.K_ESCAPE]:
-                parent.status = graphic.constant.STATUS_DICT["Pause_menu"]
+    def event(self, parent, map):
+        keys = pygame.key.get_pressed()
+        self.player.move(map, parent)
 
     def draw(self, map, window):
         """Class play in graphic ijdzaoijfoeziagfiezjipgfe"""
@@ -25,3 +25,7 @@ class Play:
         self.items.draw(window, map)
         self.guardian.draw(window, map.guardian.pos)
         self.player.draw(window, map.player.pos.pos)
+
+    def loop(self, parent, window, map):
+        self.event(parent, map)
+        self.draw(map, window)

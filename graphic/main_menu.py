@@ -7,7 +7,8 @@ class Main_menu:
     def __init__(self):
         self.sprite = Asset(graphic.constant.MAIN_MENU_IMG, None)
 
-    def event(self, parent, keys):
+    def event(self, parent):
+        keys = pygame.key.get_pressed()
         if keys[pygame.K_RETURN]:
             parent.status = graphic.constant.STATUS_DICT["Play"]
         if keys[pygame.K_ESCAPE]:
@@ -15,3 +16,7 @@ class Main_menu:
 
     def draw(self, window):
         window.blit(self.sprite.image, self.sprite.rect)
+
+    def loop(self, parent, window):
+        self.event(parent)
+        self.draw(window)
