@@ -3,12 +3,18 @@ from logic.position import Position
 from logic.items import Item
 from logic.player import Player
 
+""" Module of Map, contains all info of one map
+"""
+
 
 class Map:
     MAP_SIZE = 15
     EXCEPTIONS = ['P', 'G', 'O']
-
+    """ Class of Map that contains all info of one map
+    """
     def __init__(self):
+        """__init__ the map from a text file and init items position
+        """
         self.exception_pos = []
         self.list_of_item = []
         self.map = list(open("map/map.txt").read())
@@ -23,7 +29,8 @@ class Map:
             size = len(self.exception_pos)
             while size == len(self.exception_pos):
                 tmp = random.randint(0, 224)
-                if self.map[tmp] not in self.EXCEPTIONS and tmp not in self.exception_pos:
+                if (self.map[tmp] not in self.EXCEPTIONS and
+                   tmp not in self.exception_pos):
                     self.exception_pos.append(tmp)
                     item = Item(tmp)
                     self.list_of_item.append(item)

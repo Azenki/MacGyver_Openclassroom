@@ -5,9 +5,16 @@ from graphic.win_menu import Win_menu
 from graphic.lose_menu import Lose_menu
 import pygame
 
+""" Module of graphic part
+"""
+
 
 class Graphic:
+    """ Class Graphic, init all stuff and display the game
+    """
     def __init__(self):
+        """__init__ init all graphic stuff
+        """
         self.status = 0
         pygame.init()
         self.window = pygame.display.set_mode((const.WIDTH, const.HEIGHT))
@@ -19,12 +26,26 @@ class Graphic:
         self.done = False
 
     def event_loop(self, map):
+        """event_loop
+
+        Args:
+            map (map): the class map with all infos from logic part
+        """
         keys = pygame.key.get_pressed()
         for event in pygame.event.get():
-            if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and self.status == const.STATUS_DICT["Win"] or event.type == pygame.KEYDOWN and self.status == const.STATUS_DICT["Lose"]:
+            if (event.type == pygame.QUIT or
+                event.type == (pygame.KEYDOWN and self.status ==
+                               const.STATUS_DICT["Win"]) or
+                event.type == (pygame.KEYDOWN and self.status ==
+                               const.STATUS_DICT["Lose"])):
                 self.done = True
 
     def gameloop(self, map):
+        """gameloop
+
+        Args:
+            map (map): the class map with all infos from logic part
+        """
         while not self.done:
             self.clock.tick(const.FPS)
             self.event_loop(map)
