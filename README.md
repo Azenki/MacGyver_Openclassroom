@@ -25,14 +25,22 @@ The game will be standalone
 
 # Download files
 https://github.com/Azenki/MacGyver_Openclassroom click on code, download zip and extract all
+
 or from terminal: 'git clone https://github.com/Azenki/MacGyver_Openclassroom.git'
 
 # How to start game
 Install Python 3
-Open terminal in MacGyver_Openclassroom directory\n
+
+Open terminal in MacGyver_Openclassroom directory
+
 'python -m venv env' (Windows)
+
 'python3 -m venv env' (Unix)
+
 'source env/Scripts/activate' (Windows)
+
 'source env/bin/activate' (Unix)
+
 'pip install -r requirements.txt'
+
 'python main.py'
